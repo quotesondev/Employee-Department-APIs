@@ -27,9 +27,6 @@ public class Department {
 	@JoinColumn(name = "head_id")
 	private Employee departmentHead;
 	
-	
-	@OneToMany(mappedBy = "department")
-	private List<Employee> employees;
 
 
 	public int getDeptId() {
@@ -69,23 +66,7 @@ public class Department {
 
 	public void setDepartmentHead(Employee departmentHead) {
 		this.departmentHead = departmentHead;
-	}
-
-
-	public List<Employee> getEmployees() {
-		return employees;
-	}
-
-
-	public void setEmployees(List<Employee> employees) {
-		this.employees = employees;
-	}
-	
-	
-	
-	
-	
-	
+	}	
 	
 
 }
