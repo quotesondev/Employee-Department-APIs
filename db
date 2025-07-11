@@ -1,0 +1,41 @@
+-- 1. Create Employee Table
+
+  drop table if exists employee;
+
+  create table employee(
+    emp_id int auto_increment primary key,
+    emp_name varchar(100) not null,
+    dob date not null,
+    salary decimal(10,2) not null,
+    address varchar(200),
+    role varchar(50),
+    hire_date date not null,
+    bonus_percentage decimal(5,2),
+    reporting_manager int
+);
+
+-- 2. Create Department Table
+
+  drop table if exists department;
+
+  create table department(
+    dept_id int auto_increment primary key,
+    dept_name varchr(100) not null,
+    creation_date date not null,
+
+    -- foreign key to Employee table for department head
+    head_id int,
+    constraint fk_department_head foreign key(head_id) references employee(emp_id)
+  );
+
+-- 3. Alter employee table to add deptId foreign key
+
+    alter table employee
+    add column dept_id int,
+    add constraints fk_employee_department foreign key(dept_id) references department(dept_id);
+
+-- 4. Add self-referencing foreign key for manager
+  
+    alter employee
+    add constraint fk_reporting_manager foreign key(reporting_manager) references employee(emp_id);
+
