@@ -1,0 +1,35 @@
+  // Department JSON Schema
+-- Request for JSON (for POST)
+
+  {
+     "deptName": "Engineering",
+      "creationDate": "2022-03-10",
+      "departmentHead": { "empId" : 1}
+  }
+
+-- Response JSON (for GET)
+
+    {
+        "deptId" : 1,
+        "deptName" : "Engineering",
+        "creationDate" : "2022-03-10",
+        "departmentHead" : {
+              "empId" : 1,
+              "empName" : "Alice Johnson"
+        },
+    }
+
+   //Employee JSON Schema
+-- Request for JSON (for POST/PUT)
+
+    {
+      "empName": "Alice Jhonson",
+      "dob": "1990-05-12",
+      "salary": 75000,
+      "address": "City A",
+      "role": "Sr. Developer",
+      "hireDate": "2020-06-01",
+      "bonusPercentage": 10,
+      "department": { "deptId": 1},
+      "reportingManager": { "empId": 2}
+    }
